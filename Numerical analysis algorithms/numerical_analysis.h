@@ -5,5 +5,6 @@
 
 double error_relativo(double aprox, double real, bool log);
 double error_absoluto(double aprox, double real);
+double biseccion(double (*func)(double), double lim_sup, double lim_inf, bool log, int n, double e_rel, bool n_stop);
 
 #endif
