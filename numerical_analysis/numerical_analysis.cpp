@@ -1,35 +1,28 @@
 #include "numerical_analysis.h"
-#include <stdio>
-
-#ifdef LOG_EN
-    #define LOG(message) printf("Log: %s\n", message)
-#else
-    #define LOG(message)
-#endif
 
 // Funcion que obtiene el error relativo.
 double error_relativo(double aprox,double real){
     double e_relativo;
     
     if (real != 0) {
-        e_rel = (aprox - real)/(real); // Calculo de error relativo
-        if (e_rel < 0) e_rel = -e_rel; // Calculo de valor absoluto
+        e_relativo = (aprox - real)/(real); // Calculo de error relativo
+        if (e_relativo < 0) e_relativo = -e_relativo; // Calculo de valor absoluto
     } else {
         LOG("Error: División por cero.");
-        e_rel = -1;
+        e_relativo = -1;
     }
     
-    return e_rel;
+    return e_relativo;
 }
 
 // Funcion para obtener el error absoluto.
 double error_absoluto(double aprox, double real){
-    double e_abs;
+    double e_absoluto;
     
-    e_abs = real - aprox; // Calculo de error absoluto
-    if (e_abs < 0) e_abs = -e_abs; // Calculo de valor absoluto
+    e_absoluto = real - aprox; // Calculo de error absoluto
+    if (e_absoluto < 0) e_absoluto = -e_absoluto; // Calculo de valor absoluto
     
-    return e_abs;
+    return e_absoluto;
 }
 
 // Funcion para encontrar raiz por metodo de biseccion
@@ -41,7 +34,7 @@ double biseccion(double (*func)(double), double lim_sup, double lim_inf, int n, 
     //Aplicabilidad del metodo de biseccion
     if (func(lim_inf)*func(lim_sup) >= 0){
         LOG("Error: La multiplicacion de las imagenes de los intervalos es mayor o igual a 0.");
-        return solucion = -1;
+        return -1;
     } 
     LOG("La funcion es compatible con la biseccion.");
 
@@ -57,11 +50,11 @@ double biseccion(double (*func)(double), double lim_sup, double lim_inf, int n, 
         //Comprobar si se debe parar
         if (error_absoluto(fun_m,0) <= tol){
             LOG("Se obtuvo la tolerancia deseada");
-            return solucion = medio;
+            return medio;
         }
         if (i == n) {
             LOG("Se alcanzo el numero de iteraciones maxima");
-            return solucion = medio;
+            return medio;
         }
         
         //Actualiza el intervalo
