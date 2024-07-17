@@ -1,4 +1,4 @@
-#define LOG_EN true
+#define LOG_EN
 #include "numerical_analysis.h"
 #include <stdio.h>
 

@@ -11,5 +11,7 @@
 double error_relativo(double aprox, double real);
 double error_absoluto(double aprox, double real);
 double biseccion(double (*func)(double), double lim_sup, double lim_inf, int n, double tol);
+double falsa_posicion(double (*func)(double), double lim_sup, double lim_inf, int n, double tol);
+double punto_fijo(double (*func)(double), double lim_sup, double lim_inf, int n, double tol);
 
 #endif
